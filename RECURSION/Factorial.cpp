@@ -8,11 +8,9 @@ int factorial(int n)
         return 1;
     }
     return n * factorial(n - 1);
-    // step by step calculation for recursion function
-    // factorial(4) = 4 * factorial(3)
-    // factorial(4) = 4 * 3 *factorial(2)
-    // factorial(4) = 4 * 3 * 2 * 1
+
 }
+
 
 int main()
 {
