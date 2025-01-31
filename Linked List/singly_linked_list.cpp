@@ -44,6 +44,7 @@ void insert_at_position(Node *&head, int value, int position)
     if(position == 1)
     {
         insert_at_head(head, value);
+        return;
     }
     Node *temp = head;
     int  count = 1;
@@ -131,6 +132,22 @@ void delete_at_position(Node*& head, int position) {
 }
 
 
+Node* reverseList(Node* head)
+{
+    Node* prev = NULL;
+    Node* current = head;
+    Node* nextnode = head;
+
+    while(nextnode != NULL)
+    {
+        nextnode = nextnode -> next;
+        current -> next = prev;
+        prev = current;
+        current = nextnode;
+    }
+    return prev;
+}
+
 void display(Node *head)
 {
     Node *temp = head;
@@ -162,7 +179,8 @@ int main()
         cout<<"\t5-for delete at begning\n";
         cout<<"\t6-for delete at last\n";
         cout<<"\t7-for delete at position\n";
-        cout<<"\t8-for EXIT Program\n";
+        cout<<"\t8-for reverse linked list\n";
+        cout<<"\t9-for EXIT Program\n";
         int ch;
         cout<<"\n\t Enter your choice: ";
         cin>>ch;
@@ -203,6 +221,9 @@ int main()
                 delete_at_position(head,pos);
                 break;
             case 8:
+                head = reverseList(head);
+                break;
+            case 9:
                 exit(0);
             default:
                 cout<<"Please Enter valid choice\n";
